@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Read(//c/Users/91720/**)",
+      "Bash(echo '{\"model\":{\"display_name\":\"Claude Sonnet 5\"},\"workspace\":{\"current_dir\":\"D:\\\\\\\\Akshata\\\\\\\\portfolio\"}}')",
+      "Bash(bash 'C:\\\\Users\\\\91720/.statusline_test.sh')",
+      "Bash(rm -f 'C:\\\\Users\\\\91720/.statusline_test.sh')",
+      "Bash(bash statusline_test.sh)",
+      "Bash(rm -f statusline_test.sh)",
+      "WebFetch(domain:matthewtrent.me)",
+      "Bash(npm -v)",
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --import-alias \"@/*\" --use-npm --no-src-dir --no-turbopack)"
+    ]
+  }
+}
