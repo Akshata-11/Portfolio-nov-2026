@@ -49,7 +49,7 @@ export default function Projects() {
       style={{ height: `${projects.length * 100}vh` }}
     >
       <div className="sticky top-14 flex h-[calc(100vh-3.5rem)] flex-col justify-center overflow-hidden px-6 py-16">
-        <div className="mx-auto w-full max-w-3xl">
+        <div className="mx-auto w-full max-w-5xl">
           <div className="flex items-end justify-between gap-4">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Projects
@@ -76,7 +76,7 @@ export default function Projects() {
             </div>
           </div>
 
-          <div className="relative mt-8 h-[440px] overflow-hidden">
+          <div className="relative mx-auto mt-8 h-[440px] max-w-3xl overflow-hidden">
             <div
               className="flex h-full"
               style={{
