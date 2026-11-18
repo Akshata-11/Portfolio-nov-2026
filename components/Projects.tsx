@@ -76,7 +76,7 @@ export default function Projects() {
             </div>
           </div>
 
-          <div className="relative mx-auto mt-8 h-[440px] max-w-3xl overflow-hidden">
+          <div className="relative mt-8 h-[440px] max-w-xl overflow-hidden">
             <div
               className="flex h-full"
               style={{
@@ -142,7 +142,7 @@ export default function Projects() {
             </div>
           </div>
 
-          <div className="mt-6 flex items-center justify-center gap-2">
+          <div className="mt-6 flex items-center gap-2">
             {projects.map((project, i) => (
               <button
                 key={project.name}
