@@ -76,13 +76,13 @@ export default function Projects() {
       className="relative border-b border-border"
       style={{ height: `${projects.length * 160}vh` }}
     >
-      <div className="sticky top-14 flex h-[calc(100vh-3.5rem)] flex-col justify-center overflow-hidden px-6 py-16">
+      <div className="sticky top-14 flex h-[calc(100vh-3.5rem)] flex-col justify-center overflow-hidden px-6 py-8 sm:py-16">
         <div className="mx-auto w-full max-w-5xl">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
             Projects
           </h2>
 
-          <div className="relative mt-8 h-[440px] overflow-hidden">
+          <div className="relative mt-5 h-[300px] overflow-hidden sm:mt-8 sm:h-[440px]">
             <div
               ref={trackRef}
               className="flex h-full gap-6"
@@ -90,7 +90,7 @@ export default function Projects() {
             >
               {projects.map((project) => {
                 const Card = (
-                  <div className="card group flex h-full flex-col rounded-2xl p-7 transition-shadow duration-200 hover:shadow-lg sm:p-8">
+                  <div className="card group flex h-full flex-col overflow-y-auto rounded-2xl p-5 transition-shadow duration-200 hover:shadow-lg sm:p-8">
                     <div className="flex items-start justify-between gap-2">
                       <h3 className="text-lg font-medium text-foreground">
                         {project.name}

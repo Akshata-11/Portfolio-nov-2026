@@ -42,7 +42,7 @@ export default function Contact() {
       </div>
 
       {/* The postcard */}
-      <div className="relative mx-auto mt-10 h-[380px] w-full max-w-2xl -rotate-1 [perspective:2000px] sm:h-[340px]">
+      <div className="relative mx-auto mt-10 h-[480px] w-full max-w-2xl -rotate-1 [perspective:2000px] sm:h-[340px]">
         <div
           className="relative h-full w-full transition-transform duration-700 ease-in-out [transform-style:preserve-3d]"
           style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
@@ -84,7 +84,7 @@ export default function Contact() {
 
           {/* Back — visitor writes a message here */}
           <div
-            className={`absolute inset-0 overflow-hidden rounded-sm bg-[#f7f1e3] p-6 shadow-xl ring-1 ring-black/5 [backface-visibility:hidden] sm:p-8 ${
+            className={`absolute inset-0 overflow-y-auto overflow-x-hidden rounded-sm bg-[#f7f1e3] p-6 shadow-xl ring-1 ring-black/5 [backface-visibility:hidden] sm:p-8 ${
               flipped ? "" : "pointer-events-none"
             }`}
             style={{ transform: "rotateY(180deg)" }}

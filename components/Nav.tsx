@@ -107,7 +107,7 @@ export default function Nav() {
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
               aria-controls="primary-nav-links"
-              className="absolute right-6 top-1/2 -translate-y-1/2 rounded-md border border-border px-3 py-1.5 text-sm text-muted md:hidden"
+              className="absolute right-16 top-1/2 -translate-y-1/2 rounded-md border border-border px-3 py-1.5 text-sm text-muted md:hidden"
             >
               {open ? "Close" : "Menu"}
             </button>
