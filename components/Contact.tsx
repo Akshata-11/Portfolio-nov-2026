@@ -114,6 +114,11 @@ export default function Contact() {
                   style={{
                     backgroundImage:
                       "repeating-linear-gradient(to bottom, transparent, transparent 1.75em, color-mix(in srgb, #3a3226 25%, transparent) 1.75em, color-mix(in srgb, #3a3226 25%, transparent) calc(1.75em + 1px))",
+                    backgroundPosition: "0 1.75em",
+                    maskImage:
+                      "linear-gradient(to bottom, transparent 0, black 1.75em, black calc(100% - 1px), transparent 100%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, transparent 0, black 1.75em, black calc(100% - 1px), transparent 100%)",
                   }}
                 />
                 <a
