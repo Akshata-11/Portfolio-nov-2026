@@ -6,9 +6,12 @@ import { ArrowUpRightIcon, ChevronDownIcon } from "@/components/icons";
 import { TechIcon } from "@/components/techIcons";
 
 export default function Projects() {
+  const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const lastAutoIndex = useRef(0);
 
+  // Horizontal drags/dots/arrows update the active dot.
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
@@ -25,7 +28,33 @@ export default function Projects() {
     return () => track.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Page scroll rotates the carousel as the section passes through view.
+  useEffect(() => {
+    function onPageScroll() {
+      const section = sectionRef.current;
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (rect.top > vh || rect.bottom < 0) return;
+
+      const progress = (vh - rect.top) / (vh + rect.height);
+      const index = Math.min(
+        projects.length - 1,
+        Math.max(0, Math.floor(progress * projects.length)),
+      );
+
+      if (index !== lastAutoIndex.current) {
+        lastAutoIndex.current = index;
+        scrollToIndex(index);
+      }
+    }
+
+    window.addEventListener("scroll", onPageScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onPageScroll);
+  }, []);
+
   function scrollToIndex(i: number) {
+    lastAutoIndex.current = i;
     const track = trackRef.current;
     if (!track) return;
     const card = track.children[i] as HTMLElement | undefined;
@@ -33,7 +62,11 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="scroll-mt-24 border-b border-border px-6 py-20">
+    <section
+      id="projects"
+      ref={sectionRef}
+      className="scroll-mt-24 border-b border-border px-6 py-20"
+    >
       <div className="mx-auto max-w-5xl">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
