@@ -15,7 +15,7 @@ export default function Music() {
           open it in Spotify.
         </p>
 
-        <div className="no-scrollbar mt-14 overflow-x-auto pb-4 pt-6">
+        <div className="no-scrollbar mt-6 overflow-x-auto pb-4 pt-20">
           <div className="mx-auto flex w-fit items-end gap-6 px-2">
             {tracks.map((track, i) => (
               <a
