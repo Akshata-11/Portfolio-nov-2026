@@ -7,9 +7,16 @@ import { TechIcon } from "@/components/techIcons";
 
 export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const [fractionalIndex, setFractionalIndex] = useState(0);
+  const [step, setStep] = useState(0);
 
   useEffect(() => {
+    function measure() {
+      const card = trackRef.current?.children[0] as HTMLElement | undefined;
+      if (card) setStep(card.offsetWidth + 24); // card width + gap-6
+    }
+
     function onScroll() {
       const section = sectionRef.current;
       if (!section) return;
@@ -20,12 +27,13 @@ export default function Projects() {
       setFractionalIndex(progress * (projects.length - 1));
     }
 
+    measure();
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", measure);
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", measure);
     };
   }, []);
 
@@ -76,13 +84,11 @@ export default function Projects() {
             </div>
           </div>
 
-          <div className="relative mt-8 h-[440px] max-w-xl overflow-hidden">
+          <div className="relative mt-8 h-[440px] overflow-hidden">
             <div
-              className="flex h-full"
-              style={{
-                width: `${projects.length * 100}%`,
-                transform: `translateX(-${(fractionalIndex / projects.length) * 100}%)`,
-              }}
+              ref={trackRef}
+              className="flex h-full gap-6"
+              style={{ transform: `translateX(-${fractionalIndex * step}px)` }}
             >
               {projects.map((project) => {
                 const Card = (
@@ -121,8 +127,7 @@ export default function Projects() {
                 return (
                   <div
                     key={project.name}
-                    className="h-full shrink-0 px-1"
-                    style={{ width: `${100 / projects.length}%` }}
+                    className="h-full w-[85%] shrink-0 sm:w-[60%] lg:w-[46%]"
                   >
                     {project.link ? (
                       <a
