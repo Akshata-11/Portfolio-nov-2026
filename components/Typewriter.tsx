@@ -59,7 +59,7 @@ export default function Typewriter({
     <span className={className}>
       <span aria-hidden="true">
         {rendered}
-        <span className="ml-1 inline-block h-[1em] w-[0.55em] translate-y-[3px] animate-[blink_1.1s_ease-in-out_infinite] bg-accent align-middle" />
+        <span className="caret-blink ml-1 inline-block h-[1em] w-[2px] translate-y-[3px] animate-[blink_1.1s_ease-in-out_infinite] bg-foreground align-middle" />
       </span>
       <span className="sr-only">{fullText}</span>
     </span>
