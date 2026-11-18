@@ -1,4 +1,5 @@
 import Nav from "@/components/Nav";
+import ScrollProgress from "@/components/ScrollProgress";
 import Hero from "@/components/Hero";
 import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
@@ -44,6 +45,7 @@ export default function Page() {
         }}
       />
       <Nav />
+      <ScrollProgress />
       <main id="top" className="flex-1">
         <Hero />
         <Experience />
