@@ -9,46 +9,59 @@ function prefersReducedMotion() {
   );
 }
 
+export type TypewriterSegment = { text: string; className?: string };
+
 export default function Typewriter({
-  text,
-  speed = 70,
+  segments,
+  speed = 45,
   className,
 }: {
-  text: string;
+  segments: TypewriterSegment[];
   speed?: number;
   className?: string;
 }) {
-  const [length, setLength] = useState(() => (prefersReducedMotion() ? text.length : 0));
-  const [done, setDone] = useState(() => length === text.length);
+  const fullText = segments.map((s) => s.text).join("");
+
+  const [length, setLength] = useState(() =>
+    prefersReducedMotion() ? fullText.length : 0,
+  );
 
   useEffect(() => {
-    if (done) return;
+    if (length >= fullText.length) return;
 
     let i = length;
     const id = setInterval(() => {
       i += 1;
       setLength(i);
-      if (i >= text.length) {
-        clearInterval(id);
-        setDone(true);
-      }
+      if (i >= fullText.length) clearInterval(id);
     }, speed);
 
     return () => clearInterval(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [text, speed]);
+  }, [fullText, speed]);
+
+  const starts = segments.reduce<number[]>((acc, seg, i) => {
+    acc.push(i === 0 ? 0 : acc[i - 1] + segments[i - 1].text.length);
+    return acc;
+  }, []);
+
+  const rendered = segments.map((seg, i) => {
+    const remaining = length - starts[i];
+    const shown = seg.text.slice(0, Math.max(0, Math.min(seg.text.length, remaining)));
+    return (
+      <span key={i} className={seg.className}>
+        {shown}
+      </span>
+    );
+  });
 
   return (
     <span className={className}>
       <span aria-hidden="true">
-        {text.slice(0, length)}
-        <span
-          className={`ml-0.5 inline-block h-[0.9em] w-[2px] translate-y-[2px] bg-accent align-middle ${
-            done ? "animate-[blink_1s_steps(1)_infinite]" : ""
-          }`}
-        />
+        {rendered}
+        <span className="ml-1 inline-block h-[1em] w-[0.55em] translate-y-[3px] animate-[blink_1.1s_ease-in-out_infinite] bg-accent align-middle" />
       </span>
-      <span className="sr-only">{text}</span>
+      <span className="sr-only">{fullText}</span>
     </span>
   );
 }

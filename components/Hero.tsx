@@ -7,10 +7,16 @@ export default function Hero() {
     <section id="about" className="scroll-mt-20 border-b border-border px-6 py-16 sm:py-20">
       <div className="mx-auto max-w-5xl">
         <h1 className="text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
-          <Typewriter text="Akshata Kawale" className="text-foreground" />{" "}
-          <span className="font-normal text-muted">
-            / {profile.title} / {profile.location}
-          </span>
+          <Typewriter
+            segments={[
+              { text: "Akshata Kawale", className: "text-foreground" },
+              { text: " " },
+              {
+                text: `/ ${profile.title} / ${profile.location}`,
+                className: "font-normal text-muted",
+              },
+            ]}
+          />
         </h1>
 
         <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground">
