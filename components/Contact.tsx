@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { profile } from "@/lib/resume-data";
 import { CheckIcon, CopyIcon, GithubIcon, LinkedinIcon } from "@/components/icons";
 
@@ -30,22 +31,31 @@ export default function Contact() {
 
       {/* The postcard */}
       <div
-        className="relative mx-auto mt-10 max-w-2xl -rotate-1 rounded-sm bg-[#f7f1e3] p-6 shadow-xl ring-1 ring-black/5 sm:p-8"
+        className="relative mx-auto mt-10 max-w-2xl -rotate-1 overflow-hidden rounded-sm bg-[#f7f1e3] p-6 shadow-xl ring-1 ring-black/5 sm:p-8"
         style={{
           backgroundImage:
             "repeating-linear-gradient(0deg, transparent, transparent 27px, color-mix(in srgb, #3a3226 8%, transparent) 28px)",
         }}
       >
-        <div className="grid gap-6 sm:grid-cols-[1fr_auto_1fr] sm:gap-8">
+        {/* Background art — Van Gogh's The Starry Night (public domain, via Wikimedia Commons) */}
+        <Image
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+          alt=""
+          fill
+          sizes="(max-width: 672px) 100vw, 672px"
+          className="pointer-events-none object-cover opacity-[0.16]"
+          priority={false}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-[#f7f1e3]/55" />
+
+        <div className="relative grid gap-6 sm:grid-cols-[1fr_auto_1fr] sm:gap-8">
           {/* Message side */}
           <div className="text-left">
-            <p className="font-[family-name:var(--font-hand)] text-[28px] leading-[1.15] text-[#2a2117] sm:text-[32px]">
+            <p className="text-sm leading-relaxed text-[#2a2117] sm:text-base">
               Hey! I build fast, accessible, pixel-perfect interfaces — and I&apos;d
               love to build the next one with you. Drop me a line :)
             </p>
-            <p className="mt-4 font-[family-name:var(--font-hand)] text-2xl text-[#6b5d47]">
-              — Akshata
-            </p>
+            <p className="mt-4 text-sm text-[#6b5d47]">— Akshata</p>
           </div>
 
           {/* Dashed divider */}
@@ -56,9 +66,7 @@ export default function Contact() {
           <div className="relative text-left">
             {/* Stamp */}
             <div className="ml-auto flex h-20 w-16 -rotate-2 items-center justify-center border-2 border-dashed border-accent/60 bg-accent/10 sm:h-24 sm:w-[72px]">
-              <span className="font-[family-name:var(--font-hand)] text-xl font-bold text-accent sm:text-2xl">
-                AK
-              </span>
+              <span className="text-sm font-bold text-accent sm:text-base">AK</span>
             </div>
             {/* Postmark */}
             <div
@@ -74,7 +82,7 @@ export default function Contact() {
               To: my next team
             </p>
 
-            <div className="mt-3 space-y-2 border-t border-[#3a3226]/70 pt-3 font-[family-name:var(--font-hand)] text-xl text-[#2a2117] sm:text-2xl">
+            <div className="mt-3 space-y-2 border-t border-[#3a3226]/70 pt-3 text-sm text-[#2a2117] sm:text-base">
               <div className="flex items-center gap-2">
                 <a href={`mailto:${profile.email}`} className="hover:text-accent">
                   {profile.email}
