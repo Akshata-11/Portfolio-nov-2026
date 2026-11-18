@@ -203,8 +203,6 @@ export const sections = [
   { id: "skills", label: "Skills", shortcut: "s" },
   { id: "projects", label: "Projects", shortcut: "p" },
   { id: "education", label: "Education", shortcut: "d" },
-  { id: "books", label: "Books", shortcut: "b" },
-  { id: "music", label: "Music", shortcut: "m" },
   { id: "contact", label: "Contact", shortcut: "c" },
 ];
 

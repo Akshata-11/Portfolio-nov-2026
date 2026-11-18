@@ -6,11 +6,9 @@ import { profile } from "@/lib/resume-data";
 import { CheckIcon, CopyIcon, GithubIcon, LinkedinIcon } from "@/components/icons";
 
 export default function Contact() {
-  const [flipped, setFlipped] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  async function copyEmail(e: React.MouseEvent) {
-    e.stopPropagation();
+  async function copyEmail() {
     try {
       await navigator.clipboard.writeText(profile.email);
       setCopied(true);
@@ -32,140 +30,89 @@ export default function Contact() {
       </div>
 
       {/* The postcard */}
-      <div
-        role="button"
-        tabIndex={0}
-        onClick={() => setFlipped((f) => !f)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            setFlipped((f) => !f);
-          }
-        }}
-        aria-label={flipped ? "Show postcard front" : "Flip postcard to read the message"}
-        className="group relative mx-auto mt-10 block h-[340px] w-full max-w-2xl -rotate-1 cursor-pointer text-left [perspective:2000px] sm:h-[300px]"
-      >
-        <div
-          className="relative h-full w-full transition-transform duration-700 ease-in-out [transform-style:preserve-3d]"
-          style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
-        >
-          {/* Front — the postcard picture */}
-          <div className="absolute inset-0 overflow-hidden rounded-sm shadow-xl ring-1 ring-black/5 [backface-visibility:hidden]">
-            <Image
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
-              alt="The Starry Night, Vincent van Gogh"
-              fill
-              sizes="(max-width: 672px) 100vw, 672px"
-              className="object-cover"
-            />
-            <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-white">
-              <span className="text-xs">The Starry Night — Vincent van Gogh</span>
-              <span className="text-xs text-white/80 transition-transform group-hover:translate-x-1">
-                Click to flip →
-              </span>
-            </div>
+      <div className="relative mx-auto mt-10 max-w-2xl -rotate-1 overflow-hidden rounded-sm shadow-xl ring-1 ring-black/10">
+        <Image
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+          alt="The Starry Night, Vincent van Gogh"
+          fill
+          sizes="(max-width: 672px) 100vw, 672px"
+          className="object-cover"
+          priority={false}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/55" />
+
+        {/* Stamp / ticket, top-right corner */}
+        <div className="absolute right-5 top-5 flex h-16 w-14 -rotate-3 flex-col items-center justify-center gap-0.5 border-2 border-dashed border-white/70 bg-[#f7f1e3]/90 shadow-md sm:h-20 sm:w-16">
+          <span className="text-base font-bold text-accent sm:text-lg">AK</span>
+          <span className="text-[8px] uppercase tracking-widest text-[#6b5d47]">
+            Mumbai
+          </span>
+        </div>
+
+        <div className="relative flex min-h-[380px] flex-col justify-between p-6 sm:min-h-[340px] sm:p-9">
+          {/* Message, with ruled writing lines */}
+          <div className="max-w-sm pr-20 text-left sm:pr-24">
+            <p
+              className="pb-1 text-sm leading-[1.9] text-white"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(to bottom, transparent, transparent 1.75em, rgba(255,255,255,0.35) 1.75em, rgba(255,255,255,0.35) calc(1.75em + 1px))",
+              }}
+            >
+              Hey! I build fast, accessible, pixel-perfect interfaces — and
+              I&apos;d love to build the next one with you. Drop me a line :)
+            </p>
+            <p className="mt-2 text-sm text-white/80">— Akshata</p>
           </div>
 
-          {/* Back — the message and address */}
-          <div
-            className="absolute inset-0 overflow-hidden rounded-sm bg-[#f7f1e3] p-6 shadow-xl ring-1 ring-black/5 [backface-visibility:hidden] sm:p-8"
-            style={{
-              transform: "rotateY(180deg)",
-              backgroundImage:
-                "repeating-linear-gradient(0deg, transparent, transparent 27px, color-mix(in srgb, #3a3226 8%, transparent) 28px)",
-            }}
-          >
-            <div className="grid h-full gap-6 sm:grid-cols-[1fr_auto_1fr] sm:gap-8">
-              {/* Message side */}
-              <div className="text-left">
-                <p className="text-sm leading-relaxed text-[#2a2117] sm:text-base">
-                  Hey! I build fast, accessible, pixel-perfect interfaces — and
-                  I&apos;d love to build the next one with you. Drop me a line :)
-                </p>
-                <p className="mt-4 text-sm text-[#6b5d47]">— Akshata</p>
+          {/* Address / contact details */}
+          <div className="text-left">
+            <p className="font-mono text-xs uppercase tracking-widest text-white/60">
+              To: my next team
+            </p>
+            <div className="mt-2 space-y-1.5 border-t border-white/30 pt-2 text-sm text-white sm:text-base">
+              <div className="flex items-center gap-2">
+                <a href={`mailto:${profile.email}`} className="hover:text-accent">
+                  {profile.email}
+                </a>
+                <button
+                  type="button"
+                  onClick={copyEmail}
+                  aria-label="Copy email address"
+                  className="text-white/70 transition-colors hover:text-accent"
+                >
+                  {copied ? (
+                    <CheckIcon className="h-4 w-4 text-accent" />
+                  ) : (
+                    <CopyIcon className="h-4 w-4" />
+                  )}
+                </button>
               </div>
+              <a href={`tel:${profile.phone}`} className="block hover:text-accent">
+                {profile.phone}
+              </a>
+              <p className="text-white/80">{profile.location}</p>
+            </div>
 
-              {/* Dashed divider */}
-              <div className="hidden border-l border-dashed border-[#b8ab8e] sm:block" />
-              <div className="block h-px w-full border-t border-dashed border-[#b8ab8e] sm:hidden" />
-
-              {/* Address side */}
-              <div className="relative text-left">
-                {/* Stamp */}
-                <div className="ml-auto flex h-20 w-16 -rotate-2 items-center justify-center border-2 border-dashed border-accent/60 bg-accent/10 sm:h-24 sm:w-[72px]">
-                  <span className="text-sm font-bold text-accent sm:text-base">
-                    AK
-                  </span>
-                </div>
-                {/* Postmark */}
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute right-6 top-2 h-20 w-20 rounded-full border border-[#2a2117]/30 sm:right-7 sm:top-3 sm:h-24 sm:w-24"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(100deg, transparent, transparent 4px, color-mix(in srgb, #2a2117 25%, transparent) 4px, color-mix(in srgb, #2a2117 25%, transparent) 5px)",
-                  }}
-                />
-
-                <p className="mt-8 font-mono text-xs uppercase tracking-widest text-[#9c8f78] sm:mt-10">
-                  To: my next team
-                </p>
-
-                <div className="mt-3 space-y-2 border-t border-[#3a3226]/70 pt-3 text-sm text-[#2a2117] sm:text-base">
-                  <div className="flex items-center gap-2">
-                    <a
-                      href={`mailto:${profile.email}`}
-                      onClick={(e) => e.stopPropagation()}
-                      className="hover:text-accent"
-                    >
-                      {profile.email}
-                    </a>
-                    <button
-                      type="button"
-                      onClick={copyEmail}
-                      aria-label="Copy email address"
-                      className="text-[#6b5d47] transition-colors hover:text-accent"
-                    >
-                      {copied ? (
-                        <CheckIcon className="h-4 w-4 text-accent" />
-                      ) : (
-                        <CopyIcon className="h-4 w-4" />
-                      )}
-                    </button>
-                  </div>
-                  <a
-                    href={`tel:${profile.phone}`}
-                    onClick={(e) => e.stopPropagation()}
-                    className="block hover:text-accent"
-                  >
-                    {profile.phone}
-                  </a>
-                  <p>{profile.location}</p>
-                </div>
-
-                <div className="mt-4 flex items-center gap-1 border-t border-[#3a3226]/70 pt-3">
-                  <a
-                    href={profile.github}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    onClick={(e) => e.stopPropagation()}
-                    aria-label="GitHub profile"
-                    className="rounded-full p-1.5 text-[#6b5d47] transition-colors hover:text-accent"
-                  >
-                    <GithubIcon className="h-5 w-5" />
-                  </a>
-                  <a
-                    href={profile.linkedin}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    onClick={(e) => e.stopPropagation()}
-                    aria-label="LinkedIn profile"
-                    className="rounded-full p-1.5 text-[#6b5d47] transition-colors hover:text-accent"
-                  >
-                    <LinkedinIcon className="h-5 w-5" />
-                  </a>
-                </div>
-              </div>
+            <div className="mt-3 flex items-center gap-1 border-t border-white/30 pt-2">
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="GitHub profile"
+                className="rounded-full p-1.5 text-white/80 transition-colors hover:text-accent"
+              >
+                <GithubIcon className="h-5 w-5" />
+              </a>
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="LinkedIn profile"
+                className="rounded-full p-1.5 text-white/80 transition-colors hover:text-accent"
+              >
+                <LinkedinIcon className="h-5 w-5" />
+              </a>
             </div>
           </div>
         </div>
