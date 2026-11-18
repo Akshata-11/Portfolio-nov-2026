@@ -1,12 +1,13 @@
 import { heroAchievements, profile } from "@/lib/resume-data";
 import { DownloadIcon, GithubIcon, LinkedinIcon, MailIcon } from "@/components/icons";
+import Typewriter from "@/components/Typewriter";
 
 export default function Hero() {
   return (
     <section id="about" className="scroll-mt-20 border-b border-border px-6 py-16 sm:py-20">
       <div className="mx-auto max-w-5xl">
         <h1 className="text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
-          <span className="text-foreground">Akshata Kawale</span>{" "}
+          <Typewriter text="Akshata Kawale" className="text-foreground" />{" "}
           <span className="font-normal text-muted">
             / {profile.title} / {profile.location}
           </span>
