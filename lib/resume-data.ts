@@ -268,86 +268,77 @@ export type Book = {
   summary: string;
 };
 
-// Placeholder picks — swap in your real reading list whenever you're ready.
 export const books: Book[] = [
   {
-    title: "Eloquent JavaScript",
-    author: "Marijn Haverbeke",
-    color: "#2563EB",
-    coverId: 7082166,
-    summary:
-      "A modern introduction to JavaScript and programming fundamentals, covering everything from basic syntax to browser APIs and Node.js, with hands-on projects throughout.",
-  },
-  {
-    title: "Refactoring UI",
-    author: "Adam Wathan & Steve Schoger",
-    color: "#DB2777",
-    coverId: 10527062,
-    summary:
-      "A practical, example-driven guide to designing better-looking interfaces, with concrete tips on spacing, color, typography, and hierarchy for developers who don't think of themselves as designers.",
-  },
-  {
-    title: "Don't Make Me Think",
-    author: "Steve Krug",
-    color: "#D97706",
-    coverId: 13345348,
-    summary:
-      "A classic, concise guide to web usability, arguing that good design should require zero thought from users — just common sense applied consistently.",
-  },
-  {
-    title: "Clean Code",
-    author: "Robert C. Martin",
-    color: "#059669",
-    coverId: 8065615,
-    summary:
-      "A foundational text on writing readable, maintainable software, covering naming, functions, and code smells through the lens of craftsmanship.",
-  },
-  {
-    title: "You Don't Know JS",
-    author: "Kyle Simpson",
-    color: "#7C3AED",
-    coverId: 8117575,
-    summary:
-      "A deep-dive book series into JavaScript's actual mechanics — scope, closures, types, and async — for developers who want to go beyond surface-level syntax.",
-  },
-  {
-    title: "The Pragmatic Programmer",
-    author: "Hunt & Thomas",
-    color: "#0D9488",
-    coverId: 10143650,
-    summary:
-      "A collection of timeless, practical advice on software craftsmanship, from DRY code to orthogonality, written as a mentor's field guide.",
-  },
-  {
-    title: "Atomic Habits",
-    author: "James Clear",
+    title: "Animal Farm",
+    author: "George Orwell",
     color: "#B91C1C",
-    coverId: 12539702,
+    coverId: 11261770,
     summary:
-      "A practical framework for building good habits and breaking bad ones, built around small, consistent changes rather than big overhauls.",
+      "A satirical fable about farm animals who overthrow their human owner, only to watch the revolution curdle into a new tyranny — a sharp allegory for how power corrupts even the best intentions.",
   },
   {
-    title: "CSS Secrets",
-    author: "Lea Verou",
-    color: "#C2410C",
-    coverId: 8763750,
-    summary:
-      "Clever, battle-tested CSS techniques for solving common real-world layout and styling problems with fewer hacks and less markup.",
-  },
-  {
-    title: "Designing Interfaces",
-    author: "Jenifer Tidwell",
+    title: "Crime and Punishment",
+    author: "Fyodor Dostoevsky",
     color: "#4338CA",
-    coverId: 389022,
+    coverId: 15183762,
     summary:
-      "A pattern-based reference for UI design, cataloguing reusable solutions to recurring interface problems across web and software design.",
+      "A destitute former student commits a murder he's convinced is morally justified, then spends the rest of the novel unraveling under the psychological weight of guilt and self-justification.",
   },
   {
-    title: "JavaScript: The Good Parts",
-    author: "Douglas Crockford",
-    color: "#EA580C",
-    coverId: 9245523,
+    title: "Can't Hurt Me",
+    author: "David Goggins",
+    color: "#111827",
+    coverId: 8305903,
     summary:
-      "A slim, opinionated tour of the best features buried inside JavaScript's messy design, arguing for a disciplined subset of the language that's genuinely elegant to write.",
+      "A brutally honest memoir on turning extreme hardship into extreme discipline, built around Goggins' own transformation and his philosophy of pushing far past where the mind wants to quit.",
+  },
+  {
+    title: "Normal People",
+    author: "Sally Rooney",
+    color: "#059669",
+    coverId: 8794265,
+    summary:
+      "A quiet, intense portrait of two teenagers in Ireland whose on-and-off relationship follows them from secondary school into university, tracing how class and insecurity shape intimacy.",
+  },
+  {
+    title: "The God of Small Things",
+    author: "Arundhati Roy",
+    color: "#C2410C",
+    coverId: 10513792,
+    summary:
+      "A lyrical, nonlinear story of fraternal twins in Kerala, whose childhood is shattered by a single forbidden love affair and the rigid social rules it breaks.",
+  },
+  {
+    title: "White Nights",
+    author: "Fyodor Dostoevsky",
+    color: "#1D4ED8",
+    coverId: 14598226,
+    summary:
+      "A lonely dreamer meets a young woman over four nights in St. Petersburg and falls for her completely, in a short, aching story about love, loneliness, and fleeting connection.",
+  },
+  {
+    title: "How to Win Friends and Influence People",
+    author: "Dale Carnegie",
+    color: "#D97706",
+    coverId: 13314878,
+    summary:
+      "The original, enduring guide to getting along with people — genuine interest, listening, and tact over manipulation — still widely read as a foundational book on communication.",
+  },
+  {
+    title: "One Day",
+    author: "David Nicholls",
+    color: "#DB2777",
+    coverId: 8580421,
+    summary:
+      "Checks in on two friends every year on the same date for two decades, charting how their lives drift apart and circle back in a story about timing, regret, and love that takes too long.",
+  },
+  {
+    title: "The Alchemist",
+    author: "Paulo Coelho",
+    color: "#CA8A04",
+    coverId: 7414780,
+    summary:
+      "An Andalusian shepherd travels to Egypt chasing a recurring dream of treasure, and learns along the way that the real reward was listening to his own convictions the whole time.",
   },
 ];
