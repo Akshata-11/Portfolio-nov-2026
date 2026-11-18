@@ -65,7 +65,12 @@ export default function Books() {
                 style={{
                   height: spineHeight(i),
                   width: spineWidth(i),
-                  background: `linear-gradient(90deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,.08) 10%, transparent 18%, transparent 82%, rgba(0,0,0,.25) 94%, rgba(0,0,0,.4) 100%), ${book.color}`,
+                  backgroundImage: [
+                    "repeating-linear-gradient(45deg, rgba(255,255,255,.07) 0px, rgba(255,255,255,.07) 1px, transparent 1px, transparent 3px)",
+                    "repeating-linear-gradient(-45deg, rgba(0,0,0,.09) 0px, rgba(0,0,0,.09) 1px, transparent 1px, transparent 3px)",
+                    "linear-gradient(90deg, rgba(255,255,255,.3) 0%, rgba(255,255,255,.06) 10%, transparent 18%, transparent 82%, rgba(0,0,0,.25) 94%, rgba(0,0,0,.4) 100%)",
+                  ].join(", "),
+                  backgroundColor: book.color,
                   boxShadow:
                     "1px 0 0 rgba(0,0,0,.08), -1px 0 0 rgba(255,255,255,.15) inset, 0 6px 10px rgba(0,0,0,.15)",
                 }}
