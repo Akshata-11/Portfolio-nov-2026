@@ -15,6 +15,11 @@ function spineWidth(i: number) {
   return variants[i % variants.length];
 }
 
+// Fine fractal-noise grain, like woven cloth binding — blended over the
+// spine color rather than a geometric crosshatch pattern.
+const CLOTH_GRAIN =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+
 export default function Books() {
   const [selected, setSelected] = useState<Book | null>(null);
   const [open, setOpen] = useState(false);
@@ -66,10 +71,10 @@ export default function Books() {
                   height: spineHeight(i),
                   width: spineWidth(i),
                   backgroundImage: [
-                    "repeating-linear-gradient(45deg, rgba(255,255,255,.07) 0px, rgba(255,255,255,.07) 1px, transparent 1px, transparent 3px)",
-                    "repeating-linear-gradient(-45deg, rgba(0,0,0,.09) 0px, rgba(0,0,0,.09) 1px, transparent 1px, transparent 3px)",
+                    CLOTH_GRAIN,
                     "linear-gradient(90deg, rgba(255,255,255,.3) 0%, rgba(255,255,255,.06) 10%, transparent 18%, transparent 82%, rgba(0,0,0,.25) 94%, rgba(0,0,0,.4) 100%)",
                   ].join(", "),
+                  backgroundBlendMode: "overlay, normal",
                   backgroundColor: book.color,
                   boxShadow:
                     "1px 0 0 rgba(0,0,0,.08), -1px 0 0 rgba(255,255,255,.15) inset, 0 6px 10px rgba(0,0,0,.15)",
