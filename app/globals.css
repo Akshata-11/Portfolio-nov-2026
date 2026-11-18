@@ -21,6 +21,7 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --font-sans: var(--font-inter);
+  --font-hand: var(--font-caveat);
 }
 
 html {
