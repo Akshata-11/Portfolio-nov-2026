@@ -264,16 +264,21 @@ export type Book = {
   title: string;
   author: string;
   color: string;
-  coverId: number;
+  coverId?: number;
+  coverUrl?: string;
   summary: string;
 };
+
+export function bookCoverUrl(book: Book) {
+  return book.coverUrl ?? `https://covers.openlibrary.org/b/id/${book.coverId}-L.jpg`;
+}
 
 export const books: Book[] = [
   {
     title: "Animal Farm",
     author: "George Orwell",
     color: "#B91C1C",
-    coverId: 11261770,
+    coverId: 15275294,
     summary:
       "A satirical fable about farm animals who overthrow their human owner, only to watch the revolution curdle into a new tyranny — a sharp allegory for how power corrupts even the best intentions.",
   },
@@ -281,7 +286,7 @@ export const books: Book[] = [
     title: "Crime and Punishment",
     author: "Fyodor Dostoevsky",
     color: "#4338CA",
-    coverId: 15183762,
+    coverId: 14935910,
     summary:
       "A destitute former student commits a murder he's convinced is morally justified, then spends the rest of the novel unraveling under the psychological weight of guilt and self-justification.",
   },
@@ -321,7 +326,7 @@ export const books: Book[] = [
     title: "How to Win Friends and Influence People",
     author: "Dale Carnegie",
     color: "#D97706",
-    coverId: 13314878,
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780671027032-L.jpg",
     summary:
       "The original, enduring guide to getting along with people — genuine interest, listening, and tact over manipulation — still widely read as a foundational book on communication.",
   },

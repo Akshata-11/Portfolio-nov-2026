@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { books, type Book } from "@/lib/resume-data";
+import { bookCoverUrl, books, type Book } from "@/lib/resume-data";
+import { playPageFlip } from "@/lib/pageFlipSound";
 
 // Deterministic pseudo-random height/width variance so spines look hand-placed, not uniform.
 function spineHeight(i: number) {
@@ -21,12 +22,14 @@ export default function Books() {
   function openBook(book: Book) {
     setSelected(book);
     setOpen(false);
+    playPageFlip();
     // Let the closed cover paint first, then flip it open on the next frame.
     requestAnimationFrame(() => requestAnimationFrame(() => setOpen(true)));
   }
 
   function close() {
     setOpen(false);
+    playPageFlip();
     setTimeout(() => setSelected(null), 300);
   }
 
@@ -161,7 +164,7 @@ export default function Books() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`https://covers.openlibrary.org/b/id/${selected.coverId}-L.jpg`}
+                  src={bookCoverUrl(selected)}
                   alt={`${selected.title} cover`}
                   className="h-full w-full object-cover"
                 />
