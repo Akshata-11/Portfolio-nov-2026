@@ -43,7 +43,7 @@ export default function Contact() {
           alt=""
           fill
           sizes="(max-width: 672px) 100vw, 672px"
-          className="pointer-events-none object-cover opacity-[0.16]"
+          className="pointer-events-none object-cover opacity-[0.07]"
           priority={false}
         />
         <div className="pointer-events-none absolute inset-0 bg-[#f7f1e3]/55" />
