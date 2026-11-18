@@ -86,7 +86,7 @@ export default function Books() {
                 style={{
                   height: spineHeight(i),
                   width: spineWidth(i),
-                  transition: `transform ${pulling ? PULL_OUT_MS : 200}ms ease-out, box-shadow ${pulling ? PULL_OUT_MS : 200}ms ease-out`,
+                  transition: `transform ${pulling ? PULL_OUT_MS : 200}ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow ${pulling ? PULL_OUT_MS : 200}ms ease-out`,
                   backgroundImage: [
                     CLOTH_GRAIN,
                     "linear-gradient(90deg, rgba(255,255,255,.3) 0%, rgba(255,255,255,.06) 10%, transparent 18%, transparent 82%, rgba(0,0,0,.25) 94%, rgba(0,0,0,.4) 100%)",
@@ -151,7 +151,7 @@ export default function Books() {
 
       {selected && (
         <div
-          className="fixed inset-0 z-[60] grid place-items-center bg-black/60 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[60] grid place-items-center bg-black/60 p-4 backdrop-blur-sm animate-[fade-in_280ms_ease-out]"
           onClick={close}
         >
           <div
@@ -159,7 +159,7 @@ export default function Books() {
             aria-modal="true"
             aria-label={selected.title}
             onClick={(e) => e.stopPropagation()}
-            className="relative h-[280px] w-[220px] [perspective:1800px] sm:h-[380px] sm:w-[300px]"
+            className="relative h-[280px] w-[220px] animate-[scale-in_320ms_cubic-bezier(0.22,1,0.36,1)] [perspective:1800px] sm:h-[380px] sm:w-[300px]"
           >
             {/* Page-edge sliver — gives the closed/open book visible thickness */}
             <div
