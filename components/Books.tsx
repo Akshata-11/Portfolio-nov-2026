@@ -174,10 +174,10 @@ export default function Books() {
             {/* The page — always underneath, this is what you're "reading" */}
             <div className="absolute inset-0 flex flex-col rounded-r-sm bg-[#f7f1e3] p-5 shadow-[inset_0_0_30px_rgba(0,0,0,0.08)] sm:p-8">
               <div className="flex-1 overflow-y-auto">
-                <h3 className="font-serif text-lg font-bold text-[#2a2117] sm:text-2xl">
+                <h3 className="text-center font-serif text-lg font-bold text-[#2a2117] sm:text-2xl">
                   {selected.title}
                 </h3>
-                <p className="mt-1 font-serif text-xs italic text-[#6b5d47] sm:text-sm">
+                <p className="mt-1 text-center font-serif text-xs italic text-[#6b5d47] sm:text-sm">
                   {selected.author}
                 </p>
                 <p className="mt-4 font-serif text-[13px] leading-relaxed text-[#3a3226] sm:mt-6 sm:text-[15px]">
