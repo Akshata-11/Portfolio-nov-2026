@@ -49,6 +49,26 @@ export default function Projects() {
     window.scrollTo({ top: sectionTop + targetProgress * runway, behavior: "smooth" });
   }
 
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      const section = sectionRef.current;
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (!inView) return;
+
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        goTo(Math.min(active + 1, projects.length - 1));
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        goTo(Math.max(active - 1, 0));
+      }
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [active]);
+
   return (
     <section
       id="projects"
@@ -58,31 +78,9 @@ export default function Projects() {
     >
       <div className="sticky top-14 flex h-[calc(100vh-3.5rem)] flex-col justify-center overflow-hidden px-6 py-16">
         <div className="mx-auto w-full max-w-5xl">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Projects
-            </h2>
-            <div className="hidden items-center gap-2 sm:flex">
-              <button
-                type="button"
-                onClick={() => goTo(Math.max(active - 1, 0))}
-                disabled={active === 0}
-                aria-label="Previous project"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted transition-colors hover:bg-foreground/5 hover:text-foreground disabled:opacity-30"
-              >
-                ←
-              </button>
-              <button
-                type="button"
-                onClick={() => goTo(Math.min(active + 1, projects.length - 1))}
-                disabled={active === projects.length - 1}
-                aria-label="Next project"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted transition-colors hover:bg-foreground/5 hover:text-foreground disabled:opacity-30"
-              >
-                →
-              </button>
-            </div>
-          </div>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Projects
+          </h2>
 
           <div className="relative mt-8 h-[440px] overflow-hidden">
             <div
@@ -145,20 +143,6 @@ export default function Projects() {
                 );
               })}
             </div>
-          </div>
-
-          <div className="mt-6 flex items-center gap-2">
-            {projects.map((project, i) => (
-              <button
-                key={project.name}
-                type="button"
-                onClick={() => goTo(i)}
-                aria-label={`Go to ${project.name}`}
-                className={`h-1.5 rounded-full transition-all ${
-                  i === active ? "w-6 bg-accent" : "w-1.5 bg-foreground/15"
-                }`}
-              />
-            ))}
           </div>
         </div>
       </div>
