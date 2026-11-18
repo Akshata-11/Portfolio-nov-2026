@@ -277,7 +277,7 @@ export const books: Book[] = [
   {
     title: "Animal Farm",
     author: "George Orwell",
-    color: "#B91C1C",
+    color: "#166534",
     coverId: 15275294,
     summary:
       "A satirical fable about farm animals who overthrow their human owner, only to watch the revolution curdle into a new tyranny — a sharp allegory for how power corrupts even the best intentions.",
@@ -285,7 +285,7 @@ export const books: Book[] = [
   {
     title: "Crime and Punishment",
     author: "Fyodor Dostoevsky",
-    color: "#4338CA",
+    color: "#7F1D1D",
     coverId: 14935910,
     summary:
       "A destitute former student commits a murder he's convinced is morally justified, then spends the rest of the novel unraveling under the psychological weight of guilt and self-justification.",
@@ -301,7 +301,7 @@ export const books: Book[] = [
   {
     title: "Normal People",
     author: "Sally Rooney",
-    color: "#059669",
+    color: "#475569",
     coverId: 8794265,
     summary:
       "A quiet, intense portrait of two teenagers in Ireland whose on-and-off relationship follows them from secondary school into university, tracing how class and insecurity shape intimacy.",
@@ -309,7 +309,7 @@ export const books: Book[] = [
   {
     title: "The God of Small Things",
     author: "Arundhati Roy",
-    color: "#C2410C",
+    color: "#B45309",
     coverId: 10513792,
     summary:
       "A lyrical, nonlinear story of fraternal twins in Kerala, whose childhood is shattered by a single forbidden love affair and the rigid social rules it breaks.",
@@ -317,7 +317,7 @@ export const books: Book[] = [
   {
     title: "White Nights",
     author: "Fyodor Dostoevsky",
-    color: "#1D4ED8",
+    color: "#1E3A8A",
     coverId: 14598226,
     summary:
       "A lonely dreamer meets a young woman over four nights in St. Petersburg and falls for her completely, in a short, aching story about love, loneliness, and fleeting connection.",
@@ -325,7 +325,7 @@ export const books: Book[] = [
   {
     title: "How to Win Friends and Influence People",
     author: "Dale Carnegie",
-    color: "#D97706",
+    color: "#0F766E",
     coverUrl: "https://covers.openlibrary.org/b/isbn/9780671027032-L.jpg",
     summary:
       "The original, enduring guide to getting along with people — genuine interest, listening, and tact over manipulation — still widely read as a foundational book on communication.",
@@ -333,7 +333,7 @@ export const books: Book[] = [
   {
     title: "One Day",
     author: "David Nicholls",
-    color: "#DB2777",
+    color: "#9D174D",
     coverId: 8580421,
     summary:
       "Checks in on two friends every year on the same date for two decades, charting how their lives drift apart and circle back in a story about timing, regret, and love that takes too long.",
