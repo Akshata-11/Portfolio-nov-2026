@@ -65,18 +65,26 @@ export default function Books() {
                 style={{
                   height: spineHeight(i),
                   width: spineWidth(i),
-                  backgroundImage: `linear-gradient(90deg, rgba(255,255,255,.25) 0%, transparent 10%, transparent 85%, rgba(0,0,0,.35) 100%), linear-gradient(to bottom, rgba(0,0,0,.1) 0%, rgba(0,0,0,.55) 100%), url(${bookCoverUrl(book)})`,
-                  backgroundSize: "cover, cover, cover",
-                  backgroundPosition: "center, center, center",
-                  backgroundColor: book.color,
+                  background: `linear-gradient(90deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,.08) 10%, transparent 18%, transparent 82%, rgba(0,0,0,.25) 94%, rgba(0,0,0,.4) 100%), ${book.color}`,
                   boxShadow:
                     "1px 0 0 rgba(0,0,0,.08), -1px 0 0 rgba(255,255,255,.15) inset, 0 6px 10px rgba(0,0,0,.15)",
                 }}
               >
-                <span className="pointer-events-none absolute inset-x-1 top-2 h-px bg-white/30" />
-                <span className="pointer-events-none absolute inset-x-1 bottom-2 h-px bg-white/30" />
+                {/* Small cover-art label near the top, like a real spine sticker */}
                 <span
-                  className="absolute inset-0 flex items-center justify-center whitespace-nowrap px-1 text-[11px] font-semibold tracking-wide text-white [writing-mode:vertical-rl] [text-shadow:0_1px_3px_rgba(0,0,0,.8)]"
+                  className="absolute inset-x-1 top-1.5 overflow-hidden rounded-[1px] shadow-sm ring-1 ring-black/20"
+                  style={{ aspectRatio: "2 / 3" }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={bookCoverUrl(book)}
+                    alt=""
+                    className="h-full w-full object-cover"
+                  />
+                </span>
+                <span className="pointer-events-none absolute inset-x-1 bottom-2 h-px bg-black/20" />
+                <span
+                  className="absolute inset-x-0 bottom-2 top-16 flex items-center justify-center whitespace-nowrap px-1 text-[11px] font-semibold tracking-wide text-white/95 [writing-mode:vertical-rl]"
                   style={{ transform: "rotate(180deg)" }}
                 >
                   {book.title}
