@@ -20,9 +20,21 @@ function spineWidth(i: number) {
 const CLOTH_GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
+const PULL_OUT_MS = 320;
+
 export default function Books() {
   const [selected, setSelected] = useState<Book | null>(null);
   const [open, setOpen] = useState(false);
+  const [pullingOut, setPullingOut] = useState<string | null>(null);
+
+  function handleSpineClick(book: Book) {
+    if (pullingOut) return;
+    setPullingOut(book.title);
+    setTimeout(() => {
+      setPullingOut(null);
+      openBook(book);
+    }, PULL_OUT_MS);
+  }
 
   function openBook(book: Book) {
     setSelected(book);
@@ -60,24 +72,30 @@ export default function Books() {
         <div className="no-scrollbar mt-10 overflow-x-auto pb-2">
           <div className="mx-auto w-fit px-2">
             <div className="flex items-end gap-[3px]">
-              {books.map((book, i) => (
+              {books.map((book, i) => {
+                const pulling = pullingOut === book.title;
+                return (
               <button
                 key={book.title}
                 type="button"
-                onClick={() => openBook(book)}
+                onClick={() => handleSpineClick(book)}
                 aria-label={`Open ${book.title} by ${book.author}`}
-                className="group relative shrink-0 cursor-pointer rounded-t-[2px] transition-transform duration-200 ease-out hover:-translate-y-3 focus-visible:-translate-y-3"
+                className={`group relative shrink-0 cursor-pointer rounded-t-[2px] hover:-translate-y-3 focus-visible:-translate-y-3 ${
+                  pulling ? "z-10 -translate-y-24 scale-105" : ""
+                }`}
                 style={{
                   height: spineHeight(i),
                   width: spineWidth(i),
+                  transition: `transform ${pulling ? PULL_OUT_MS : 200}ms ease-out, box-shadow ${pulling ? PULL_OUT_MS : 200}ms ease-out`,
                   backgroundImage: [
                     CLOTH_GRAIN,
                     "linear-gradient(90deg, rgba(255,255,255,.3) 0%, rgba(255,255,255,.06) 10%, transparent 18%, transparent 82%, rgba(0,0,0,.25) 94%, rgba(0,0,0,.4) 100%)",
                   ].join(", "),
                   backgroundBlendMode: "overlay, normal",
                   backgroundColor: book.color,
-                  boxShadow:
-                    "1px 0 0 rgba(0,0,0,.08), -1px 0 0 rgba(255,255,255,.15) inset, 0 6px 10px rgba(0,0,0,.15)",
+                  boxShadow: pulling
+                    ? "1px 0 0 rgba(0,0,0,.08), -1px 0 0 rgba(255,255,255,.15) inset, 0 20px 30px rgba(0,0,0,.35)"
+                    : "1px 0 0 rgba(0,0,0,.08), -1px 0 0 rgba(255,255,255,.15) inset, 0 6px 10px rgba(0,0,0,.15)",
                 }}
               >
                 {/* Small cover-art label near the top, like a real spine sticker */}
@@ -100,7 +118,8 @@ export default function Books() {
                   {book.title}
                 </span>
               </button>
-              ))}
+                );
+              })}
             </div>
 
             <div className="relative">
