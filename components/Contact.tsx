@@ -43,10 +43,10 @@ export default function Contact() {
           alt=""
           fill
           sizes="(max-width: 672px) 100vw, 672px"
-          className="pointer-events-none object-cover opacity-[0.07]"
+          className="pointer-events-none object-cover opacity-[0.4]"
           priority={false}
         />
-        <div className="pointer-events-none absolute inset-0 bg-[#f7f1e3]/55" />
+        <div className="pointer-events-none absolute inset-0 bg-[#f7f1e3]/35" />
 
         <div className="relative grid gap-6 sm:grid-cols-[1fr_auto_1fr] sm:gap-8">
           {/* Message side */}
