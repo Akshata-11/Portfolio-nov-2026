@@ -54,7 +54,7 @@ export default function Projects() {
       id="projects"
       ref={sectionRef}
       className="relative border-b border-border"
-      style={{ height: `${projects.length * 100}vh` }}
+      style={{ height: `${projects.length * 160}vh` }}
     >
       <div className="sticky top-14 flex h-[calc(100vh-3.5rem)] flex-col justify-center overflow-hidden px-6 py-16">
         <div className="mx-auto w-full max-w-5xl">
