@@ -103,9 +103,11 @@ export default function Nav() {
               ))}
             </div>
 
-            <span className="absolute right-0 top-1/2 hidden -translate-y-1/2 text-xs text-muted md:block">
-              <LocalTime />
-            </span>
+            {!scrolled && (
+              <span className="absolute right-0 top-1/2 hidden -translate-y-1/2 text-xs text-muted md:block">
+                <LocalTime />
+              </span>
+            )}
 
             <button
               type="button"
