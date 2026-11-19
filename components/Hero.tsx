@@ -1,20 +1,37 @@
 import { profile } from "@/lib/resume-data";
 import { DownloadIcon, MailIcon } from "@/components/icons";
-import Typewriter from "@/components/Typewriter";
 
 export default function Hero() {
   return (
-    <section id="about" className="scroll-mt-20 border-b border-border px-6 py-16 sm:py-20">
-      <div className="mx-auto max-w-5xl">
-        <h1 className="whitespace-nowrap text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-          <Typewriter segments={[{ text: "Akshata Kawale" }]} />
-        </h1>
+    <section
+      id="about"
+      className="relative overflow-hidden bg-[#07070a] px-6 py-24 text-left sm:py-32"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(ellipse 60% 50% at 10% 100%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%)",
+        }}
+      />
 
-        <p className="mt-2 font-serif text-3xl italic text-muted sm:text-4xl">
-          {profile.title} · {profile.location}
+      <div className="relative mx-auto max-w-5xl">
+        <p className="font-[family-name:var(--font-script)] text-3xl text-white sm:text-5xl">
+          Crafting interfaces by
         </p>
 
-        <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground">
+        <h1 className="mt-2 font-[family-name:var(--font-display)] text-[13vw] leading-[0.95] tracking-tight sm:text-[7.5rem]">
+          <span className="block text-white">Akshata</span>
+          <span className="block text-accent">Kawale</span>
+        </h1>
+
+        <p className="mt-6 font-[family-name:var(--font-display)] text-sm tracking-[0.3em] text-white sm:text-base">
+          <span className="text-accent">{profile.title.split(" ")[0].toUpperCase()}</span>{" "}
+          {profile.title.split(" ").slice(1).join(" ").toUpperCase()}
+        </p>
+
+        <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/70">
           {profile.summary}
         </p>
 
@@ -29,7 +46,7 @@ export default function Hero() {
           <a
             href="/resume.pdf"
             download
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
           >
             <DownloadIcon className="h-4 w-4" />
             Résumé
