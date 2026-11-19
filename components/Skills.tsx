@@ -12,7 +12,6 @@ export default function Skills() {
         <div className="mt-10 border-t border-border">
           {skillGroups.map((group, i) => (
             <div key={group.category}>
-              <div className="h-2 bg-[repeating-linear-gradient(135deg,transparent,transparent_4px,var(--border)_4px,var(--border)_5px)]" />
               <div className="grid grid-cols-1 gap-2 border-b border-border py-6 sm:grid-cols-[220px_1fr] sm:gap-6">
                 <p className="text-sm font-medium text-foreground">
                   <span className="mr-2 text-muted">
