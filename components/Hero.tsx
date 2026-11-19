@@ -29,9 +29,10 @@ export default function Hero() {
                 { text: profile.title.split(" ")[0].toUpperCase(), className: "text-accent" },
                 { text: ` ${profile.title.split(" ").slice(1).join(" ").toUpperCase()}` },
               ],
-              [{ text: profile.location.toUpperCase() }],
             ]}
           />
+          <br />
+          {profile.location.toUpperCase()}
         </p>
 
         <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted">
