@@ -1,4 +1,4 @@
-import { heroAchievements, profile } from "@/lib/resume-data";
+import { profile } from "@/lib/resume-data";
 import { DownloadIcon, GithubIcon, LinkedinIcon, MailIcon } from "@/components/icons";
 import Typewriter from "@/components/Typewriter";
 
@@ -22,15 +22,6 @@ export default function Hero() {
         <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground">
           {profile.summary}
         </p>
-
-        <ul className="mt-6 grid max-w-3xl gap-x-8 gap-y-3 sm:grid-cols-2">
-          {heroAchievements.map((item) => (
-            <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a

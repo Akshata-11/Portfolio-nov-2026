@@ -10,15 +10,6 @@ export const profile = {
     "Frontend Developer with 3+ years of experience building performant, responsive, and accessible web applications. Proficient in React.js, Next.js, and TypeScript with deep expertise in component architecture, state management, and modern CSS. Currently leading a React-to-Next.js migration for improved SSR, SEO, and page performance.",
 };
 
-export const heroAchievements: string[] = [
-  "3+ years of frontend development experience",
-  "Leading React → Next.js migration (40% faster page loads)",
-  "50% boost in API integration efficiency",
-  "25% faster document-rendering pipelines shipped",
-  "BE in Electronics Engineering, CGPA 7.75",
-  "Research internship at TIFR — nanofabrication",
-];
-
 export type SkillGroup = { category: string; items: string[] };
 
 export const skillGroups: SkillGroup[] = [
