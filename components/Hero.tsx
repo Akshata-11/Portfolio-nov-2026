@@ -17,7 +17,7 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl">
-        <h1 className="text-[13vw] font-bold leading-[0.95] tracking-tight sm:text-[7.5rem]">
+        <h1 className="text-[13vw] font-bold italic leading-[0.95] tracking-tight sm:text-[7.5rem]">
           <span className="block text-foreground">Akshata</span>
           <span className="block text-accent">Kawale</span>
         </h1>
