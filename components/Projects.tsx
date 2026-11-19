@@ -90,7 +90,7 @@ export default function Projects() {
             >
               {projects.map((project) => {
                 const Card = (
-                  <div className="card group flex h-full flex-col overflow-y-auto rounded-2xl p-5 transition-shadow duration-200 hover:shadow-lg sm:p-8">
+                  <div className="card no-scrollbar group flex h-full flex-col overflow-y-auto rounded-2xl p-5 transition-shadow duration-200 hover:shadow-lg sm:p-8">
                     <div className="flex items-start justify-between gap-2">
                       <h3 className="text-lg font-medium text-foreground">
                         {project.name}

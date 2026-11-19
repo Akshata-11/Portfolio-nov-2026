@@ -148,7 +148,7 @@ export const projects: Project[] = [
     subtitle: "React.js → Next.js Migration",
     period: "2025 – Present",
     description:
-      "Migrating a production React SPA to Next.js with the App Router — implementing SSR, dynamic routing, and SEO optimization. Responsive layouts with Tailwind CSS, optimized image loading via next/image, and component-level code splitting. Improved Lighthouse scores across Performance, Accessibility, Best Practices, and SEO.",
+      "Migrating a production React SPA to Next.js with the App Router — SSR, dynamic routing, and SEO, plus optimized image loading and component-level code splitting.",
     tech: ["Next.js", "React", "Tailwind CSS", "SSR"],
     link: "https://newartx.com",
   },
