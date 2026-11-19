@@ -16,7 +16,8 @@ export default function Music() {
         </p>
 
         <div className="no-scrollbar mt-6 overflow-x-auto pb-4 pt-20">
-          <div className="mx-auto flex w-fit items-end gap-6 px-2">
+          <div className="mx-auto w-fit px-2">
+            <div className="flex flex-nowrap items-end gap-6">
             {tracks.map((track, i) => (
               <a
                 key={track.title}
@@ -66,6 +67,7 @@ export default function Music() {
                 </div>
               </a>
             ))}
+            </div>
           </div>
         </div>
       </div>
