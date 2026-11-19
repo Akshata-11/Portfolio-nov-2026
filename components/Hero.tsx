@@ -1,5 +1,6 @@
 import { profile } from "@/lib/resume-data";
 import { DownloadIcon, MailIcon } from "@/components/icons";
+import Typewriter from "@/components/Typewriter";
 
 export default function Hero() {
   return (
@@ -22,10 +23,15 @@ export default function Hero() {
         </h1>
 
         <p className="mt-6 text-sm font-bold tracking-[0.3em] text-foreground sm:text-base">
-          <span className="text-accent">{profile.title.split(" ")[0].toUpperCase()}</span>{" "}
-          {profile.title.split(" ").slice(1).join(" ").toUpperCase()}
-          <br />
-          {profile.location.toUpperCase()}
+          <Typewriter
+            lines={[
+              [
+                { text: profile.title.split(" ")[0].toUpperCase(), className: "text-accent" },
+                { text: ` ${profile.title.split(" ").slice(1).join(" ").toUpperCase()}` },
+              ],
+              [{ text: profile.location.toUpperCase() }],
+            ]}
+          />
         </p>
 
         <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted">

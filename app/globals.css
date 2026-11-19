@@ -40,6 +40,13 @@ html {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  /* A blinking text caret is conventional UI feedback, not decorative
+     motion — real OS/app text cursors keep blinking under this setting too. */
+  .caret-blink {
+    animation-duration: 1.1s !important;
+    animation-iteration-count: infinite !important;
+  }
 }
 
 body {
@@ -101,5 +108,15 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
