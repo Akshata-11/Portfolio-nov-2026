@@ -9,15 +9,6 @@ export default function Hero() {
       id="about"
       className="relative overflow-hidden border-b border-border bg-background px-6 py-24 text-left sm:py-32"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(ellipse 60% 50% at 10% 100%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%)",
-        }}
-      />
-
       <div className="relative mx-auto max-w-5xl">
         <h1 className="whitespace-nowrap font-serif text-[9vw] italic font-bold leading-[0.95] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl">
           Akshata Kawale
