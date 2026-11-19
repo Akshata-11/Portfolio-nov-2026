@@ -1,6 +1,7 @@
 import { profile } from "@/lib/resume-data";
 import { DownloadIcon, MailIcon } from "@/components/icons";
 import Typewriter from "@/components/Typewriter";
+import ResumePreview from "@/components/ResumePreview";
 
 export default function Hero() {
   return (
@@ -47,14 +48,10 @@ export default function Hero() {
             <MailIcon className="h-4 w-4" />
             Get in touch
           </a>
-          <a
-            href="/resume.pdf"
-            download
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5"
-          >
+          <ResumePreview triggerClassName="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5">
             <DownloadIcon className="h-4 w-4" />
             Résumé
-          </a>
+          </ResumePreview>
         </div>
       </div>
     </section>
