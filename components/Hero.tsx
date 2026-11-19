@@ -19,7 +19,7 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl">
-        <h1 className="whitespace-nowrap text-[9vw] font-bold leading-[0.95] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl">
+        <h1 className="whitespace-nowrap font-serif text-[9vw] italic font-bold leading-[0.95] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl">
           Akshata Kawale
         </h1>
 
