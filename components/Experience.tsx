@@ -1,34 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { experience } from "@/lib/resume-data";
 import { ArrowUpRightIcon, ChevronDownIcon } from "@/components/icons";
 import { TechIcon } from "@/components/techIcons";
 
 export default function Experience() {
   const [openSet, setOpenSet] = useState<Set<number>>(new Set([0]));
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    function onScroll() {
-      const track = trackRef.current;
-      if (!track) return;
-      const rect = track.getBoundingClientRect();
-      const vh = window.innerHeight;
-      // 0 when the track's top reaches the viewport's center, 1 when its
-      // bottom reaches the viewport's center.
-      const p = (vh / 2 - rect.top) / (rect.height || 1);
-      setProgress(Math.min(Math.max(p, 0), 1));
-    }
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
 
   function toggle(i: number) {
     setOpenSet((prev) => {
@@ -49,13 +27,8 @@ export default function Experience() {
           Experience
         </h2>
 
-        <div ref={trackRef} className="relative mt-10">
+        <div className="relative mt-10">
           <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border sm:left-[7px]" />
-          <div
-            aria-hidden="true"
-            className="absolute left-[3px] z-10 h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_0_4px_var(--background)] transition-[top] duration-150 ease-out"
-            style={{ top: `calc(${progress * 100}% + 0.5rem)` }}
-          />
 
           <div className="space-y-10">
             {experience.map((job, i) => {
