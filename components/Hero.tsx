@@ -17,16 +17,12 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl">
-        <p className="font-[family-name:var(--font-script)] text-3xl text-foreground sm:text-5xl">
-          Crafting interfaces by
-        </p>
-
-        <h1 className="mt-2 font-[family-name:var(--font-display)] text-[13vw] leading-[0.95] tracking-tight sm:text-[7.5rem]">
+        <h1 className="text-[13vw] font-bold leading-[0.95] tracking-tight sm:text-[7.5rem]">
           <span className="block text-foreground">Akshata</span>
           <span className="block text-accent">Kawale</span>
         </h1>
 
-        <p className="mt-6 font-[family-name:var(--font-display)] text-sm tracking-[0.3em] text-foreground sm:text-base">
+        <p className="mt-6 text-sm font-bold tracking-[0.3em] text-foreground sm:text-base">
           <span className="text-accent">{profile.title.split(" ")[0].toUpperCase()}</span>{" "}
           {profile.title.split(" ").slice(1).join(" ").toUpperCase()}
         </p>

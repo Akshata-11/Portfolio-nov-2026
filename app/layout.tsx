@@ -1,21 +1,10 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Dancing_Script, Archivo_Black } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import { profile } from "@/lib/resume-data";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-});
-
-const dancingScript = Dancing_Script({
-  variable: "--font-script",
-  subsets: ["latin"],
-});
-
-const archivoBlack = Archivo_Black({
-  variable: "--font-display",
-  weight: "400",
   subsets: ["latin"],
 });
 
@@ -32,10 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${jetbrainsMono.variable} ${dancingScript.variable} ${archivoBlack.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${jetbrainsMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         {children}
       </body>
