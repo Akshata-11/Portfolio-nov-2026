@@ -17,14 +17,14 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto max-w-5xl">
-        <h1 className="text-[13vw] font-bold leading-[0.95] tracking-tight sm:text-[7.5rem]">
-          <span className="block text-foreground">Akshata</span>
-          <span className="block text-accent">Kawale</span>
+        <h1 className="whitespace-nowrap text-[9vw] font-bold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+          <span className="text-foreground">Akshata </span>
+          <span className="text-accent">Kawale</span>
         </h1>
 
         <p className="mt-6 text-sm font-bold tracking-[0.3em] text-foreground sm:text-base">
           <span className="text-accent">{profile.title.split(" ")[0].toUpperCase()}</span>{" "}
-          {profile.title.split(" ").slice(1).join(" ").toUpperCase()}
+          {profile.title.split(" ").slice(1).join(" ").toUpperCase()}, {profile.location.toUpperCase()}
         </p>
 
         <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted">
