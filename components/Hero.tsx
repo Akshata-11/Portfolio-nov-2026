@@ -1,7 +1,6 @@
 import { profile } from "@/lib/resume-data";
 import { DownloadIcon, MailIcon } from "@/components/icons";
 import Typewriter from "@/components/Typewriter";
-import ResumePreview from "@/components/ResumePreview";
 
 export default function Hero() {
   return (
@@ -48,10 +47,29 @@ export default function Hero() {
             <MailIcon className="h-4 w-4" />
             Get in touch
           </a>
-          <ResumePreview triggerClassName="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="peer inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5"
+          >
             <DownloadIcon className="h-4 w-4" />
             Résumé
-          </ResumePreview>
+          </a>
+
+          {/* A half-sheet of "paper" peeks up from the bottom-right on hover.
+              Must be a direct sibling of the .peer link above for peer-hover
+              to apply — position:fixed keeps it visually anchored regardless. */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none fixed bottom-0 right-10 z-50 h-56 w-40 translate-y-[85%] rounded-t-md bg-surface p-4 shadow-2xl ring-1 ring-black/10 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] peer-hover:translate-y-1/2"
+          >
+            <div className="h-1.5 w-3/4 rounded bg-foreground/15" />
+            <div className="mt-3 h-1 w-full rounded bg-foreground/10" />
+            <div className="mt-2 h-1 w-5/6 rounded bg-foreground/10" />
+            <div className="mt-2 h-1 w-full rounded bg-foreground/10" />
+            <div className="mt-2 h-1 w-2/3 rounded bg-foreground/10" />
+          </div>
         </div>
       </div>
     </section>
