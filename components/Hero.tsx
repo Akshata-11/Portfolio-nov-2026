@@ -1,6 +1,7 @@
 import { profile } from "@/lib/resume-data";
 import { DownloadIcon, MailIcon } from "@/components/icons";
 import Typewriter from "@/components/Typewriter";
+import ResumeOverlay from "@/components/ResumeOverlay";
 
 export default function Hero() {
   return (
@@ -47,15 +48,10 @@ export default function Hero() {
             <MailIcon className="h-4 w-4" />
             Get in touch
           </a>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="peer inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5"
-          >
+          <ResumeOverlay triggerClassName="peer inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5">
             <DownloadIcon className="h-4 w-4" />
             Résumé
-          </a>
+          </ResumeOverlay>
 
           {/* A half-sheet of "paper" peeks up from the bottom-right on hover.
               Must be a direct sibling of the .peer link above for peer-hover
