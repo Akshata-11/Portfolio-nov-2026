@@ -1,4 +1,5 @@
 import { profile } from "@/lib/resume-data";
+import LocalTime from "@/components/LocalTime";
 
 const YEAR = 2026;
 
@@ -9,7 +10,11 @@ export default function Footer() {
         <p>
           © {YEAR} {profile.name}
         </p>
-        <p className="font-mono">Built with Next.js &amp; Tailwind CSS</p>
+        <div className="flex items-center gap-3">
+          <p className="font-mono">Built with Next.js &amp; Tailwind CSS</p>
+          <span className="text-border">·</span>
+          <LocalTime />
+        </div>
       </div>
     </footer>
   );
