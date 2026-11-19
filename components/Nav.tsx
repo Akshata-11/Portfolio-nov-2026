@@ -76,7 +76,7 @@ export default function Nav() {
           <nav className="relative mx-auto h-14 px-6" aria-label="Primary">
             <div
               className={`absolute top-1/2 hidden -translate-y-1/2 items-center gap-1 transition-all duration-700 ease-out md:flex ${
-                scrolled ? "left-1/2 -translate-x-1/2" : "left-6 translate-x-0"
+                scrolled ? "left-1/2 -translate-x-1/2" : "left-0 translate-x-0"
               }`}
             >
               {sections.map((s) => (
