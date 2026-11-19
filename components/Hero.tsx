@@ -22,11 +22,11 @@ export default function Hero() {
           Akshata Kawale
         </h1>
 
-        <p className="mt-6 text-sm font-bold tracking-[0.3em] text-foreground sm:text-base">
+        <p className="mt-6 text-sm font-bold tracking-[0.3em] text-zinc-500 sm:text-base">
           <Typewriter
             lines={[
               [
-                { text: profile.title.split(" ")[0].toUpperCase(), className: "text-accent" },
+                { text: profile.title.split(" ")[0].toUpperCase(), className: "text-zinc-700" },
                 { text: ` ${profile.title.split(" ").slice(1).join(" ").toUpperCase()}` },
               ],
             ]}
