@@ -28,8 +28,6 @@ export default function Experience() {
         </h2>
 
         <div className="relative mt-10">
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border sm:left-[7px]" />
-
           <div className="space-y-10">
             {experience.map((job, i) => {
               const open = openSet.has(i);
@@ -40,14 +38,13 @@ export default function Experience() {
                   key={job.company}
                   className="relative grid grid-cols-1 gap-3 sm:grid-cols-[150px_1fr] sm:gap-6"
                 >
-                  <div className="relative pl-6">
-                    <span className="absolute left-0 top-1 h-3.5 w-3.5 rounded-full border-2 border-accent bg-background" />
+                  <div className="sm:sticky sm:top-24 sm:self-start">
                     <p className="font-serif text-lg italic text-foreground sm:text-xl">
                       {job.period}
                     </p>
                   </div>
 
-                  <div className="card ml-6 rounded-2xl p-6 sm:ml-0">
+                  <div className="card rounded-2xl p-6">
                     <button
                       type="button"
                       onClick={() => toggle(i)}
