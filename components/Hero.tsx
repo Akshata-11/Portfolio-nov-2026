@@ -10,7 +10,7 @@ export default function Hero() {
           <Typewriter segments={[{ text: "Akshata Kawale" }]} />
         </h1>
 
-        <p className="mt-2 text-3xl italic text-muted sm:text-4xl">
+        <p className="mt-2 font-serif text-3xl italic text-muted sm:text-4xl">
           {profile.title} · {profile.location}
         </p>
 
